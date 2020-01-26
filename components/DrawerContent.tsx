@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
 
-export default function PokemonScreen() {
+export default function DrawerContent() {
   return <View></View>;
 }
 
