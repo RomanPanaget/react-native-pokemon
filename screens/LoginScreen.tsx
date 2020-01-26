@@ -4,7 +4,7 @@ import { StyleSheet, View, Text } from "react-native";
 export default function LoginScreen(props) {
   return (
     <View>
-      <Text onPress={() => props.navigation.navigate("DrawerScreen")}>
+      <Text onPress={() => props.navigation.navigate("AppScreen")}>
         Go to drawer
       </Text>
     </View>

@@ -9,7 +9,7 @@ export default createAppContainer(
       LoginScreen: createStackNavigator({
         LoginScreen: LoginScreen
       }),
-      DrawerScreen: DrawerNavigator
+      AppScreen: DrawerNavigator
     },
     { initialRouteName: "LoginScreen" }
   )
