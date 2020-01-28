@@ -3,7 +3,7 @@ import { Animated, Image, Text, StyleSheet, View } from "react-native";
 import Card from "./Card";
 import Checkbox from "./Checkbox";
 import Icon from "./Icon";
-import { SingleHeartbeatAnimation, FadeOut } from "../shared/animations";
+import { FadeOut } from "../shared/animations";
 
 export default function PokemonCard({ pokemon, onPress }) {
   const opacity = new Animated.Value(0);
@@ -17,7 +17,7 @@ export default function PokemonCard({ pokemon, onPress }) {
   }, []);
   return (
     <Card onPress={onPress}>
-      <View style={{ padding: 12 }}>
+      <View>
         <Text style={styles.id}>#{pokemon.id}</Text>
         <View>
           <Image
@@ -26,10 +26,8 @@ export default function PokemonCard({ pokemon, onPress }) {
             }}
             style={styles.image}
           />
-          <Animated.View
-            style={[styles.image, styles.imageOverlay, { opacity }]}
-          >
-            <Icon name={"md-heart"} size={120} color={"red"} />
+          <Animated.View style={[styles.imageOverlay, { opacity }]}>
+            <Icon name={"md-heart"} size={120} color={"white"} />
           </Animated.View>
         </View>
       </View>
@@ -56,7 +54,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     fontSize: 30,
     fontWeight: "bold",
-    padding: 8,
+    padding: 12,
     color: "red",
     borderRadius: 26,
     overflow: "hidden"
@@ -79,8 +77,13 @@ const styles = StyleSheet.create({
   },
   imageOverlay: {
     position: "absolute",
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    backgroundColor: "#FF000070"
   },
   actions: {
     flexDirection: "row",
