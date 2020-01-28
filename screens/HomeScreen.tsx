@@ -7,7 +7,7 @@ import {
   Linking,
   Button
 } from "react-native";
-import { HeartbeatAnimation } from "../shared/animations";
+import { LoopHeartbeatAnimation } from "../shared/animations";
 
 const LOGO_MAX_SIZE = 150;
 const LOGO_MIN_SIZE = 145;
@@ -15,7 +15,7 @@ const LOGO_MIN_SIZE = 145;
 export default function HomeScreen() {
   const size = useRef(new Animated.Value(LOGO_MIN_SIZE)).current;
   useEffect(() => {
-    HeartbeatAnimation(size, LOGO_MIN_SIZE, LOGO_MAX_SIZE).start();
+    LoopHeartbeatAnimation(size, LOGO_MIN_SIZE, LOGO_MAX_SIZE).start();
   }, []);
   return (
     <View style={{ flex: 1 }}>
