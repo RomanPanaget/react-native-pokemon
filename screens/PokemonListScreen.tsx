@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { StyleSheet, View, Text, FlatList } from "react-native";
+import { StyleSheet, FlatList } from "react-native";
 import { Pokemon } from "../interfaces/pokemon.interface";
 import { getPokemons } from "../utils/utils";
-import Card from "../components/Card";
 import PokemonCard from "../components/PokemonCard";
 
-export default function PokemonListScreen(props) {
+export default function PokemonListScreen({ navigation }) {
   const [pokemons, setPokemons] = useState(null);
   useEffect(() => {
     getPokemons(1, 9)
@@ -16,7 +15,14 @@ export default function PokemonListScreen(props) {
     <FlatList<Pokemon>
       data={pokemons}
       keyExtractor={(item: Pokemon) => String(item.id)}
-      renderItem={({ item }) => <PokemonCard pokemon={item} />}
+      renderItem={({ item }) => (
+        <PokemonCard
+          onPress={() =>
+            navigation.navigate("PokemonScreen", { pokemon: item })
+          }
+          pokemon={item}
+        />
+      )}
     />
   );
 }
