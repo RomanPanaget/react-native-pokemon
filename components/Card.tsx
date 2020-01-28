@@ -8,6 +8,7 @@ export default function Card(props) {
       style={[
         {
           margin: 12,
+          overflow: "hidden",
           shadowColor: "#000",
           shadowOffset: {
             width: 0,
