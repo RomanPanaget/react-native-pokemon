@@ -43,11 +43,20 @@ export default function HomeScreen() {
           This app is a demo on how to query Pokemon's API with React Native
         </Text>
         <Button
-          title={"Github Project"}
+          title={"React Native Project"}
           onPress={() =>
             Linking.openURL(
               "https://github.com/RomanPanaget/react-native-pokemon"
             )
+          }
+        />
+        <Text style={{ textAlign: "center" }}>
+          You can also check the Ionic equivalent project
+        </Text>
+        <Button
+          title={"Ionic Project"}
+          onPress={() =>
+            Linking.openURL("https://github.com/RomanPanaget/ionic-pokemon")
           }
         />
       </View>
