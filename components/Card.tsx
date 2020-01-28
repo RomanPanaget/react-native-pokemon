@@ -1,12 +1,13 @@
 import React from "react";
-import { View } from "react-native";
+import Touchable from "./Touchable";
 
 export default function Card(props) {
   return (
-    <View
+    <Touchable
+      onPress={props.onPress}
       style={[
         {
-          margin: 10,
+          margin: 12,
           shadowColor: "#000",
           shadowOffset: {
             width: 0,
@@ -22,6 +23,6 @@ export default function Card(props) {
       ]}
     >
       {props.children}
-    </View>
+    </Touchable>
   );
 }
