@@ -45,8 +45,11 @@ export default function PokemonScreen({ navigation }) {
         <View style={{ flex: 1 }}>
           <Text style={{ marginVertical: 6 }}>{pokemon.height} feet</Text>
           <Text style={{ marginVertical: 6 }}>{pokemon.weight} pounds</Text>
-          {pokemon.abilities.map(ability => (
-            <Text style={{ textTransform: "capitalize", marginVertical: 6 }}>
+          {pokemon.abilities.map((ability, index) => (
+            <Text
+              key={index}
+              style={{ textTransform: "capitalize", marginVertical: 6 }}
+            >
               {ability.ability.name}
             </Text>
           ))}
