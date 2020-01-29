@@ -2,13 +2,14 @@ import React from "react";
 import {
   TouchableNativeFeedback,
   TouchableOpacity,
-  Platform
+  Platform,
+  View
 } from "react-native";
 
 export default function Touchable(props: any) {
   return Platform.OS === "android" ? (
     <TouchableNativeFeedback onPress={props.onPress}>
-      {props.children}
+      <View {...props}>{props.children}</View>
     </TouchableNativeFeedback>
   ) : (
     <TouchableOpacity onPress={props.onPress} style={props.style}>
