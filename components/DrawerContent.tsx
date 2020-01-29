@@ -1,4 +1,5 @@
 import React from "react";
+import Animated from "react-native-reanimated";
 import { StyleSheet, View, Text, Image } from "react-native";
 import { SafeAreaView } from "react-navigation";
 import DrawerRow from "./DrawerRow";
@@ -6,11 +7,16 @@ import { gray } from "../shared/colors";
 import IconButton from "./IconButton";
 
 export default function DrawerContent(props) {
+  const rotation = Animated.interpolate(props.drawerOpenProgress, {
+    inputRange: [0, 1],
+    outputRange: [0, 2 * Math.PI]
+  });
+
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <Image
-          style={{ width: 80, height: 80 }}
+        <Animated.Image
+          style={{ width: 80, height: 80, transform: [{ rotate: rotation }] }}
           source={require("../assets/pokeball.png")}
         />
       </View>
